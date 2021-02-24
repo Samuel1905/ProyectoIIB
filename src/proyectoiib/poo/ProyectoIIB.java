@@ -17,6 +17,8 @@ public class ProyectoIIB {
     public static void main(String[] args) {
         // TODO code application logic here
         System.out.println("saludos");
+        
+        System.out.println("Como estas");
     }
     
 }
