@@ -16,6 +16,8 @@ public class VenderProducto extends javax.swing.JFrame {
      */
     public VenderProducto() {
         initComponents();
+        String codigo;
+        codigo = (String) txtCodigo.getText();
     }
 
     /**
