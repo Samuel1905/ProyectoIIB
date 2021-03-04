@@ -52,21 +52,21 @@ public class GUIVenderProducto extends javax.swing.JFrame {
         lblProducto.setBackground(new java.awt.Color(255, 255, 255));
         lblProducto.setText("Producto");
 
-        lblInformacion.setText("Informacion");
+        lblInformacion.setText("Información");
 
-        lblCodigo.setText("Codigo");
+        lblCodigo.setText("Código");
 
         lblCantidad.setText("Cantidad");
 
         btnAgregar.setText("Agregar");
 
-        lblCedula.setText("Cedula");
+        lblCedula.setText("Cédula");
 
         lblNombre.setText("Nombre");
 
         lblCiudad.setText("Ciudad");
 
-        lblDireccion.setText("Direccion");
+        lblDireccion.setText("Dirección");
 
         btnRegresar.setText("Regresar");
 

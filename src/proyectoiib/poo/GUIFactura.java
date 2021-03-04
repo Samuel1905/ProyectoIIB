@@ -20,7 +20,7 @@ public class GUIFactura extends javax.swing.JFrame {
     public GUIFactura() {
         initComponents();
         modeloTabla = new DefaultTableModel();
-        modeloTabla.addColumn("Codigo");
+        modeloTabla.addColumn("Código");
         modeloTabla.addColumn("Nombre");
         modeloTabla.addColumn("Cantidad");
         modeloTabla.addColumn("Precio");

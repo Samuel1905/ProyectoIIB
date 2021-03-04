@@ -140,12 +140,12 @@
     </Component>
     <Component class="javax.swing.JLabel" name="lblInformacion">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Informacion"/>
+        <Property name="text" type="java.lang.String" value="Informaci&#xf3;n"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="lblCodigo">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Codigo"/>
+        <Property name="text" type="java.lang.String" value="C&#xf3;digo"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JTextField" name="txtCodigo">
@@ -164,7 +164,7 @@
     </Component>
     <Component class="javax.swing.JLabel" name="lblCedula">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Cedula"/>
+        <Property name="text" type="java.lang.String" value="C&#xe9;dula"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="lblNombre">
@@ -179,7 +179,7 @@
     </Component>
     <Component class="javax.swing.JLabel" name="lblDireccion">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Direccion"/>
+        <Property name="text" type="java.lang.String" value="Direcci&#xf3;n"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JButton" name="btnRegresar">
