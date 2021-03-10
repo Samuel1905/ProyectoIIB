@@ -59,6 +59,11 @@ public class GUIVenderProducto extends javax.swing.JFrame {
         lblCantidad.setText("Cantidad");
 
         btnAgregar.setText("Agregar");
+        btnAgregar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAgregarActionPerformed(evt);
+            }
+        });
 
         lblCedula.setText("Cédula");
 
@@ -71,6 +76,11 @@ public class GUIVenderProducto extends javax.swing.JFrame {
         btnRegresar.setText("Regresar");
 
         btnGenerarFactura.setText("Generar Factura");
+        btnGenerarFactura.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnGenerarFacturaActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -159,6 +169,27 @@ public class GUIVenderProducto extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void btnAgregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAgregarActionPerformed
+        // TODO add your handling code here:
+        String codigoA;
+        int cantidadA;
+        codigoA = (String) txtCodigo.getText();
+        cantidadA = Integer.parseInt(txtCantidad.getText());
+        
+    }//GEN-LAST:event_btnAgregarActionPerformed
+
+    private void btnGenerarFacturaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGenerarFacturaActionPerformed
+        // TODO add your handling code here:
+        String cedulaGF;
+        String nombreGF;
+        String ciudadGF;
+        String direccionGF;
+        cedulaGF = (String) txtCedula.getText();
+        nombreGF = (String) txtNombre.getText();
+        ciudadGF = (String) txtCiudad.getText();
+        direccionGF = (String) txtDireccion.getText(); 
+    }//GEN-LAST:event_btnGenerarFacturaActionPerformed
 
     /**
      * @param args the command line arguments
