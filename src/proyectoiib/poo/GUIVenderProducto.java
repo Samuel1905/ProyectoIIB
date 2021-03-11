@@ -131,7 +131,7 @@ public class GUIVenderProducto extends javax.swing.JFrame {
         int cantidadA;
         codigoA = (String) txtCodigo.getText();
         cantidadA = Integer.parseInt(txtCantidad.getText());
-        
+
     }//GEN-LAST:event_btnAgregarActionPerformed
 
     private void btnGenerarFacturaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGenerarFacturaActionPerformed
@@ -143,12 +143,19 @@ public class GUIVenderProducto extends javax.swing.JFrame {
         cedulaGF = (String) txtCedula.getText();
         nombreGF = (String) txtNombre.getText();
         ciudadGF = (String) txtCiudad.getText();
-        direccionGF = (String) txtDireccion.getText(); 
+        direccionGF = (String) txtDireccion.getText();
+        GUIFactura nuevaFactura = new GUIFactura();
+        nuevaFactura.setVisible(true);
+        GUIVenderProducto.this.dispose();
     }//GEN-LAST:event_btnGenerarFacturaActionPerformed
 
     private void btnRegresarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegresarActionPerformed
         // TODO add your handling code here:
-        
+
+        Menu nuevoMenu = new Menu();
+        nuevoMenu.setVisible(true);
+        GUIVenderProducto.this.dispose();
+
     }//GEN-LAST:event_btnRegresarActionPerformed
 
     /**

@@ -130,6 +130,9 @@
       <Properties>
         <Property name="text" type="java.lang.String" value="Men&#xfa;"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnMenuActionPerformed"/>
+      </Events>
     </Component>
   </SubComponents>
 </Form>
