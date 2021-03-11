@@ -99,23 +99,37 @@ public class Menu extends javax.swing.JFrame {
 
     private void btnEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarActionPerformed
         // TODO add your handling code here:
-        
+        GUIEliminarProducto nuevoElim = new GUIEliminarProducto();
+        nuevoElim.setVisible(true);
+        Menu.this.dispose();
     }//GEN-LAST:event_btnEliminarActionPerformed
 
     private void btnNuevosProductosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNuevosProductosActionPerformed
         // TODO add your handling code here:
+        GUIAniadirProducto nuevoProducto = new GUIAniadirProducto();
+        nuevoProducto.setVisible(true);
+        Menu.this.dispose();
     }//GEN-LAST:event_btnNuevosProductosActionPerformed
 
     private void btnVenderActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVenderActionPerformed
         // TODO add your handling code here:
+        GUIVenderProducto nuevaVenta = new GUIVenderProducto();
+        nuevaVenta.setVisible(true);
+        Menu.this.dispose();
     }//GEN-LAST:event_btnVenderActionPerformed
 
     private void btnAumentarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAumentarActionPerformed
         // TODO add your handling code here:
+        GUIAumentar nuevoAum = new GUIAumentar();
+        nuevoAum.setVisible(true);
+        Menu.this.dispose();
     }//GEN-LAST:event_btnAumentarActionPerformed
 
     private void btnInventarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnInventarioActionPerformed
         // TODO add your handling code here:
+        GUIInventario nuevoInventario = new GUIInventario();
+        nuevoInventario.setVisible(true);
+        Menu.this.dispose();
     }//GEN-LAST:event_btnInventarioActionPerformed
 
     /**
