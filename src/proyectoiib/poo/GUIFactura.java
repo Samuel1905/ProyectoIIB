@@ -5,6 +5,11 @@
  */
 package proyectoiib.poo;
 
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.io.ObjectInputStream;
+import java.util.ArrayList;
 import javax.swing.table.DefaultTableModel;
 
 /**
@@ -12,6 +17,7 @@ import javax.swing.table.DefaultTableModel;
  * @author User
  */
 public class GUIFactura extends javax.swing.JFrame {
+
     DefaultTableModel modeloTabla; //declarando objeto
 
     /**
@@ -19,13 +25,64 @@ public class GUIFactura extends javax.swing.JFrame {
      */
     public GUIFactura() {
         initComponents();
-        modeloTabla = new DefaultTableModel();
+        /*modeloTabla = new DefaultTableModel();
         modeloTabla.addColumn("Código");
         modeloTabla.addColumn("Nombre");
         modeloTabla.addColumn("Cantidad");
         modeloTabla.addColumn("Precio");
         modeloTabla.addColumn("TOTAL A PAGAR");
-        tblFactura.setModel(modeloTabla);
+        tblFactura.setModel(modeloTabla);*/
+        double t = 0.0;
+        try {
+            ObjectInputStream recuperarFactura = new ObjectInputStream(new FileInputStream("Factura.dat"));
+            ArrayList<Facturas> factura = (ArrayList<Facturas>) recuperarFactura.readObject();
+            recuperarFactura.close();
+            System.out.println("Factura recuperado con exito");
+            for (Facturas facturas : factura) {
+
+                if (Integer.toString(facturas.getCedula()).length() < 10) {
+
+                    txaSalida.append("0" + facturas.getCedula() + "\n" + facturas.getNombre() + "\n" + facturas.getCiudad()
+                            + "\n" + facturas.getDomicilio() + "\n\n");
+                } else {
+                    txaSalida.append(facturas.getCedula() + "\n" + facturas.getNombre() + "\n" + facturas.getCiudad()
+                            + "\n" + facturas.getDomicilio() + "\n\n");
+                }
+
+            }
+
+            try {
+                ObjectInputStream recuperarObjeto = new ObjectInputStream(new FileInputStream("Venta.dat"));
+                //ArrayList<Venta> venta = (ArrayList<Venta>) recuperarObjeto.readObject();
+                recuperarObjeto.close();
+                System.out.println("Lista recuperado con exito");
+
+                txaSalida.append("Codigo \t Nombre \t\t Cantidad \t Precio\n");
+                /*for (Venta pr : venta) {
+
+                    txaSalida.append(pr.getCodigo() + "\t" + pr.getNombre() + "\t\t" + pr.getStock() + "\t"
+                            + pr.totalPagar() + "\n");
+                    t = t + pr.totalPagar();
+
+                }*/
+                txaSalida.append("\n\n\n TOTAL A PAGAR: ");
+                txaSalida.append(t + "\n");
+                txaSalida.setBounds(168, 45, 421, 300);
+                //f.add(txaSalida);
+            } catch (FileNotFoundException e1) {
+                System.out.println("Error1");
+            } catch (IOException e1) {
+                System.out.println("Error2");
+            }/* catch (ClassNotFoundException e1) {
+                System.out.println("Error3");
+            }*/
+        } catch (FileNotFoundException e1) {
+            System.out.println("Error1");
+        } catch (IOException e1) {
+            System.out.println("Error2");
+        } catch (ClassNotFoundException e1) {
+            System.out.println("Error3");
+        }
     }
 
     /**
@@ -38,9 +95,9 @@ public class GUIFactura extends javax.swing.JFrame {
     private void initComponents() {
 
         lblFactura = new javax.swing.JLabel();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        tblFactura = new javax.swing.JTable();
         btnFinalizar = new javax.swing.JButton();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        txaSalida = new javax.swing.JTextArea();
         lblFondo = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -51,21 +108,6 @@ public class GUIFactura extends javax.swing.JFrame {
         lblFactura.setText("FACTURA");
         getContentPane().add(lblFactura, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 20, -1, -1));
 
-        tblFactura.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
-            },
-            new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4"
-            }
-        ));
-        jScrollPane1.setViewportView(tblFactura);
-
-        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 60, 520, 292));
-
         btnFinalizar.setFont(new java.awt.Font("Tahoma", 3, 14)); // NOI18N
         btnFinalizar.setText("FINALIZAR");
         btnFinalizar.addActionListener(new java.awt.event.ActionListener() {
@@ -75,6 +117,12 @@ public class GUIFactura extends javax.swing.JFrame {
         });
         getContentPane().add(btnFinalizar, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 380, 130, 50));
 
+        txaSalida.setColumns(20);
+        txaSalida.setRows(5);
+        jScrollPane2.setViewportView(txaSalida);
+
+        getContentPane().add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 70, 520, 240));
+
         lblFondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Fondos/FondoFactura.jpg"))); // NOI18N
         getContentPane().add(lblFondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 610, 480));
 
@@ -83,7 +131,7 @@ public class GUIFactura extends javax.swing.JFrame {
 
     private void btnFinalizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnFinalizarActionPerformed
         // TODO add your handling code here:
-        
+
         Menu nuevoMenu = new Menu();
         nuevoMenu.setVisible(true);
         GUIFactura.this.dispose();
@@ -127,9 +175,9 @@ public class GUIFactura extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnFinalizar;
-    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JLabel lblFactura;
     private javax.swing.JLabel lblFondo;
-    private javax.swing.JTable tblFactura;
+    private javax.swing.JTextArea txaSalida;
     // End of variables declaration//GEN-END:variables
 }
