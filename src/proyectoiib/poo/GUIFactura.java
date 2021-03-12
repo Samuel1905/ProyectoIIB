@@ -19,20 +19,14 @@ import javax.swing.table.DefaultTableModel;
 public class GUIFactura extends javax.swing.JFrame {
 
     DefaultTableModel modeloTabla; //declarando objeto
+    double t = 0.0;
 
     /**
      * Creates new form Factura
      */
     public GUIFactura() {
         initComponents();
-        /*modeloTabla = new DefaultTableModel();
-        modeloTabla.addColumn("Código");
-        modeloTabla.addColumn("Nombre");
-        modeloTabla.addColumn("Cantidad");
-        modeloTabla.addColumn("Precio");
-        modeloTabla.addColumn("TOTAL A PAGAR");
-        tblFactura.setModel(modeloTabla);*/
-        double t = 0.0;
+
         try {
             ObjectInputStream recuperarFactura = new ObjectInputStream(new FileInputStream("Factura.dat"));
             ArrayList<Facturas> factura = (ArrayList<Facturas>) recuperarFactura.readObject();
@@ -53,29 +47,29 @@ public class GUIFactura extends javax.swing.JFrame {
 
             try {
                 ObjectInputStream recuperarObjeto = new ObjectInputStream(new FileInputStream("Venta.dat"));
-                //ArrayList<Venta> venta = (ArrayList<Venta>) recuperarObjeto.readObject();
+                ArrayList<Venta> venta = (ArrayList<Venta>) recuperarObjeto.readObject();
                 recuperarObjeto.close();
                 System.out.println("Lista recuperado con exito");
 
                 txaSalida.append("Codigo \t Nombre \t\t Cantidad \t Precio\n");
-                /*for (Venta pr : venta) {
+                for (Venta pr : venta) {
 
                     txaSalida.append(pr.getCodigo() + "\t" + pr.getNombre() + "\t\t" + pr.getStock() + "\t"
                             + pr.totalPagar() + "\n");
                     t = t + pr.totalPagar();
 
-                }*/
+                }
                 txaSalida.append("\n\n\n TOTAL A PAGAR: ");
                 txaSalida.append(t + "\n");
                 txaSalida.setBounds(168, 45, 421, 300);
-                //f.add(txaSalida);
+
             } catch (FileNotFoundException e1) {
                 System.out.println("Error1");
             } catch (IOException e1) {
                 System.out.println("Error2");
-            }/* catch (ClassNotFoundException e1) {
+            } catch (ClassNotFoundException e1) {
                 System.out.println("Error3");
-            }*/
+            }
         } catch (FileNotFoundException e1) {
             System.out.println("Error1");
         } catch (IOException e1) {
