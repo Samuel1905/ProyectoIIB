@@ -5,11 +5,15 @@
  */
 package proyectoiib.poo;
 
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author User
  */
 public class GUIAniadirProducto extends javax.swing.JFrame {
+
+    Producto p1;
 
     /**
      * Creates new form AniadirProducto
@@ -142,19 +146,36 @@ public class GUIAniadirProducto extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
+    public void limpiarGUI() {
+        txtNombre.setText(null);
+        txtCantidad.setText(null);
+        txtCodigo.setText(null);
+        txtPrecio.setText(null);
+    }
+    
     private void btnAgregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAgregarActionPerformed
         // TODO add your handling code here:
+        try {
+            int stock = Integer.parseInt(txtCantidad.getText());
+            double precio = Double.parseDouble(txtPrecio.getText());
+
+            p1 = new Producto(txtCodigo.getText(), txtNombre.getText(), stock, precio);
+            JOptionPane.showMessageDialog(rootPane, "Producto ingresado correctamente.");
+
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(rootPane, "Datos incorrectos!", "Advertencia", JOptionPane.WARNING_MESSAGE);
+        }
+        
+        limpiarGUI();
+
     }//GEN-LAST:event_btnAgregarActionPerformed
 
     private void btnVolverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVolverActionPerformed
         // TODO add your handling code here:
-        
-       
-        
+
         Menu nuevoMenu = new Menu();
-       nuevoMenu.setVisible(true);
-GUIAniadirProducto.this.dispose();
+        nuevoMenu.setVisible(true);
+        GUIAniadirProducto.this.dispose();
     }//GEN-LAST:event_btnVolverActionPerformed
 
     /**
