@@ -98,7 +98,7 @@ public class GUIVenderProducto extends javax.swing.JFrame {
         getContentPane().add(lblDireccion, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 210, 60, -1));
 
         btnRegresar.setFont(new java.awt.Font("Tahoma", 3, 12)); // NOI18N
-        btnRegresar.setText("Regresar");
+        btnRegresar.setText("Volver");
         btnRegresar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnRegresarActionPerformed(evt);
@@ -120,7 +120,7 @@ public class GUIVenderProducto extends javax.swing.JFrame {
         getContentPane().add(txtDireccion, new org.netbeans.lib.awtextra.AbsoluteConstraints(376, 212, 86, -1));
 
         lblFondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Fondos/FondoVenderProducto.jpg"))); // NOI18N
-        getContentPane().add(lblFondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(-90, 0, 630, 340));
+        getContentPane().add(lblFondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 530, 370));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents

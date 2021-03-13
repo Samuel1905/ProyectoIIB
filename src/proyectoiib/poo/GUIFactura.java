@@ -98,11 +98,11 @@ public class GUIFactura extends javax.swing.JFrame {
         setTitle("Factura");
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        lblFactura.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
+        lblFactura.setFont(new java.awt.Font("Century Gothic", 3, 24)); // NOI18N
         lblFactura.setText("FACTURA");
         getContentPane().add(lblFactura, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 20, -1, -1));
 
-        btnFinalizar.setFont(new java.awt.Font("Tahoma", 3, 14)); // NOI18N
+        btnFinalizar.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
         btnFinalizar.setText("FINALIZAR");
         btnFinalizar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {

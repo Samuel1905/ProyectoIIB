@@ -38,58 +38,58 @@ public class Menu extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        lblPCStore.setFont(new java.awt.Font("Times New Roman", 3, 36)); // NOI18N
+        lblPCStore.setFont(new java.awt.Font("Century Gothic", 3, 36)); // NOI18N
         lblPCStore.setText("PC STORE");
         getContentPane().add(lblPCStore, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 20, -1, -1));
 
-        lblBienvenido.setFont(new java.awt.Font("Times New Roman", 3, 14)); // NOI18N
+        lblBienvenido.setFont(new java.awt.Font("Century Gothic", 3, 14)); // NOI18N
         lblBienvenido.setText("BIENVENIDO");
         getContentPane().add(lblBienvenido, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 70, -1, -1));
 
-        btnNuevosProductos.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
+        btnNuevosProductos.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
         btnNuevosProductos.setText("Nuevos Productos");
         btnNuevosProductos.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnNuevosProductosActionPerformed(evt);
             }
         });
-        getContentPane().add(btnNuevosProductos, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 160, -1, -1));
+        getContentPane().add(btnNuevosProductos, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 160, 160, -1));
 
-        btnVender.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
+        btnVender.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
         btnVender.setText("Vender");
         btnVender.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnVenderActionPerformed(evt);
             }
         });
-        getContentPane().add(btnVender, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 130, 87, -1));
+        getContentPane().add(btnVender, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 140, 160, -1));
 
-        btnInventario.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
+        btnInventario.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
         btnInventario.setText("Inventario");
         btnInventario.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnInventarioActionPerformed(evt);
             }
         });
-        getContentPane().add(btnInventario, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 220, -1, -1));
+        getContentPane().add(btnInventario, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 230, 160, -1));
 
-        btnAumentar.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
+        btnAumentar.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
         btnAumentar.setText("Aumentar");
         btnAumentar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnAumentarActionPerformed(evt);
             }
         });
-        getContentPane().add(btnAumentar, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 190, -1, -1));
+        getContentPane().add(btnAumentar, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 200, 160, -1));
 
-        btnEliminar.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
+        btnEliminar.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
         btnEliminar.setText("Eliminar");
         btnEliminar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnEliminarActionPerformed(evt);
             }
         });
-        getContentPane().add(btnEliminar, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 250, 87, -1));
+        getContentPane().add(btnEliminar, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 260, 160, -1));
 
         lblFondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Fondos/FondoMenu.jpg"))); // NOI18N
         getContentPane().add(lblFondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 530, 380));

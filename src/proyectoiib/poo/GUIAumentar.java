@@ -40,11 +40,18 @@ public class GUIAumentar extends javax.swing.JFrame {
 
         pnlProducto.setBorder(javax.swing.BorderFactory.createTitledBorder("Producto"));
 
+        lblCodigo.setFont(new java.awt.Font("Century Gothic", 0, 11)); // NOI18N
         lblCodigo.setText("Código");
 
+        txtCodigo.setFont(new java.awt.Font("Century Gothic", 0, 11)); // NOI18N
+
+        btnAumentar.setFont(new java.awt.Font("Century Gothic", 0, 11)); // NOI18N
         btnAumentar.setText("Aumentar");
 
+        lblCantidad.setFont(new java.awt.Font("Century Gothic", 0, 11)); // NOI18N
         lblCantidad.setText("Cantidad");
+
+        txtCantidad.setFont(new java.awt.Font("Century Gothic", 0, 11)); // NOI18N
 
         javax.swing.GroupLayout pnlProductoLayout = new javax.swing.GroupLayout(pnlProducto);
         pnlProducto.setLayout(pnlProductoLayout);
@@ -82,7 +89,8 @@ public class GUIAumentar extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
-        btnMenu.setText("Menú");
+        btnMenu.setFont(new java.awt.Font("Century Gothic", 0, 11)); // NOI18N
+        btnMenu.setText("Volver");
         btnMenu.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnMenuActionPerformed(evt);
@@ -96,7 +104,7 @@ public class GUIAumentar extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGap(79, 79, 79)
                 .addComponent(pnlProducto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(89, Short.MAX_VALUE))
+                .addContainerGap(78, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(btnMenu, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -107,7 +115,7 @@ public class GUIAumentar extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGap(22, 22, 22)
                 .addComponent(pnlProducto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 33, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 32, Short.MAX_VALUE)
                 .addComponent(btnMenu)
                 .addGap(18, 18, 18))
         );

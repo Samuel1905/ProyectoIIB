@@ -48,16 +48,22 @@ public class GUIAniadirProducto extends javax.swing.JFrame {
 
         jPanel1.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
+        jLabel1.setFont(new java.awt.Font("Century Gothic", 3, 11)); // NOI18N
         jLabel1.setText("Datos");
 
+        blCodigo.setFont(new java.awt.Font("Century Gothic", 0, 11)); // NOI18N
         blCodigo.setText("Código");
 
+        blNombre.setFont(new java.awt.Font("Century Gothic", 0, 11)); // NOI18N
         blNombre.setText("Nombre");
 
+        blCantidad.setFont(new java.awt.Font("Century Gothic", 0, 11)); // NOI18N
         blCantidad.setText("Cantidad");
 
+        blPrecio.setFont(new java.awt.Font("Century Gothic", 0, 11)); // NOI18N
         blPrecio.setText("Precio");
 
+        btnAgregar.setFont(new java.awt.Font("Century Gothic", 0, 11)); // NOI18N
         btnAgregar.setText("Agregar");
         btnAgregar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -65,12 +71,21 @@ public class GUIAniadirProducto extends javax.swing.JFrame {
             }
         });
 
+        btnVolver.setFont(new java.awt.Font("Century Gothic", 0, 11)); // NOI18N
         btnVolver.setText("Volver");
         btnVolver.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnVolverActionPerformed(evt);
             }
         });
+
+        txtCodigo.setFont(new java.awt.Font("Century Gothic", 0, 11)); // NOI18N
+
+        txtNombre.setFont(new java.awt.Font("Century Gothic", 0, 11)); // NOI18N
+
+        txtCantidad.setFont(new java.awt.Font("Century Gothic", 0, 11)); // NOI18N
+
+        txtPrecio.setFont(new java.awt.Font("Century Gothic", 0, 11)); // NOI18N
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -134,14 +149,14 @@ public class GUIAniadirProducto extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGap(47, 47, 47)
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(53, Short.MAX_VALUE))
+                .addContainerGap(42, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(28, 28, 28)
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(13, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         pack();

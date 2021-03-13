@@ -38,8 +38,12 @@ public class GUIEliminarProducto extends javax.swing.JFrame {
 
         pnlProducto.setBorder(javax.swing.BorderFactory.createTitledBorder("Producto"));
 
+        lblCodigo.setFont(new java.awt.Font("Century Gothic", 0, 11)); // NOI18N
         lblCodigo.setText("Código");
 
+        txtCodigo.setFont(new java.awt.Font("Century Gothic", 0, 11)); // NOI18N
+
+        btnEliminar.setFont(new java.awt.Font("Century Gothic", 0, 11)); // NOI18N
         btnEliminar.setText("Eliminar");
 
         javax.swing.GroupLayout pnlProductoLayout = new javax.swing.GroupLayout(pnlProducto);
@@ -70,7 +74,8 @@ public class GUIEliminarProducto extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
-        btnMenu.setText("Menú");
+        btnMenu.setFont(new java.awt.Font("Century Gothic", 0, 11)); // NOI18N
+        btnMenu.setText("Volver");
         btnMenu.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnMenuActionPerformed(evt);
@@ -88,12 +93,12 @@ public class GUIEliminarProducto extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGap(75, 75, 75)
                 .addComponent(pnlProducto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(86, Short.MAX_VALUE))
+                .addContainerGap(79, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap(56, Short.MAX_VALUE)
+                .addContainerGap(55, Short.MAX_VALUE)
                 .addComponent(pnlProducto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(38, 38, 38)
                 .addComponent(btnMenu)

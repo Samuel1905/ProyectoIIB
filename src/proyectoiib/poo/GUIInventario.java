@@ -49,7 +49,8 @@ public class GUIInventario extends javax.swing.JFrame {
         ));
         jScrollPane2.setViewportView(tblInformacion);
 
-        btnMenu.setText("Menú");
+        btnMenu.setFont(new java.awt.Font("Century Gothic", 0, 11)); // NOI18N
+        btnMenu.setText("Volver");
         btnMenu.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnMenuActionPerformed(evt);
