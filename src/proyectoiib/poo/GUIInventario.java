@@ -28,7 +28,7 @@ public class GUIInventario extends javax.swing.JFrame {
             recuperarObjeto.close();
             System.out.println("Lista recuperada con exito");
             
-            txaSalida.append("Código" + "\t" + "Nombre" + "\t\t" + "Stock" + "\t"
+            txaSalida.append("Código" + "\t" + "Nombre" + "\t\t\t" + "Stock" + "\t"
 					+ "Precio" + "\n");
             for (Producto pr : producto) {
 		if (pr.getCodigo().compareTo("") == 0) {
