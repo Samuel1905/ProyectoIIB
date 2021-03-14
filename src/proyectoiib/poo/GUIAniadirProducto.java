@@ -107,29 +107,30 @@ public class GUIAniadirProducto extends javax.swing.JFrame {
         txtPrecio = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("Agregar");
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         pnlDatos.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
-        lblDatos.setFont(new java.awt.Font("Century Gothic", 3, 11)); // NOI18N
+        lblDatos.setFont(new java.awt.Font("Century Gothic", 3, 18)); // NOI18N
         lblDatos.setText("Datos");
 
-        blCodigo.setFont(new java.awt.Font("Century Gothic", 0, 11)); // NOI18N
+        blCodigo.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
         blCodigo.setText("Código");
 
-        blNombre.setFont(new java.awt.Font("Century Gothic", 0, 11)); // NOI18N
+        blNombre.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
         blNombre.setText("Nombre");
 
-        blCantidad.setFont(new java.awt.Font("Century Gothic", 0, 11)); // NOI18N
+        blCantidad.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
         blCantidad.setText("Cantidad");
 
-        blPrecio.setFont(new java.awt.Font("Century Gothic", 0, 11)); // NOI18N
+        blPrecio.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
         blPrecio.setText("Precio");
 
-        btnAgregar.setFont(new java.awt.Font("Century Gothic", 0, 11)); // NOI18N
+        btnAgregar.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
         btnAgregar.setText("Agregar");
 
-        btnVolver.setFont(new java.awt.Font("Century Gothic", 0, 11)); // NOI18N
+        btnVolver.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
         btnVolver.setText("Volver");
 
         txtCodigo.setFont(new java.awt.Font("Century Gothic", 0, 11)); // NOI18N
@@ -175,7 +176,6 @@ public class GUIAniadirProducto extends javax.swing.JFrame {
                             .addComponent(blPrecio))
                         .addGap(64, 64, 64)
                         .addGroup(pnlDatosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(lblDatos)
                             .addComponent(txtCodigo)
                             .addComponent(txtNombre)
                             .addComponent(txtCantidad)
@@ -184,8 +184,11 @@ public class GUIAniadirProducto extends javax.swing.JFrame {
                         .addGap(147, 147, 147)
                         .addGroup(pnlDatosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(btnAgregar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(btnVolver, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
-                .addContainerGap(58, Short.MAX_VALUE))
+                            .addComponent(btnVolver, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                    .addGroup(pnlDatosLayout.createSequentialGroup()
+                        .addGap(155, 155, 155)
+                        .addComponent(lblDatos)))
+                .addContainerGap(44, Short.MAX_VALUE))
         );
         pnlDatosLayout.setVerticalGroup(
             pnlDatosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -210,12 +213,12 @@ public class GUIAniadirProducto extends javax.swing.JFrame {
                     .addComponent(blPrecio))
                 .addGap(18, 18, 18)
                 .addComponent(btnAgregar)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 31, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(btnVolver)
                 .addGap(19, 19, 19))
         );
 
-        getContentPane().add(pnlDatos, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 40, 370, 300));
+        getContentPane().add(pnlDatos, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 20, 370, 300));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents

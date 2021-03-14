@@ -162,17 +162,17 @@ public class GUIVenderProducto extends javax.swing.JFrame {
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         lblProducto.setBackground(new java.awt.Color(255, 255, 255));
-        lblProducto.setFont(new java.awt.Font("Tahoma", 3, 24)); // NOI18N
+        lblProducto.setFont(new java.awt.Font("Century Gothic", 3, 18)); // NOI18N
         lblProducto.setForeground(new java.awt.Color(204, 0, 51));
         lblProducto.setText("Producto");
-        getContentPane().add(lblProducto, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 30, 130, 40));
+        getContentPane().add(lblProducto, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 30, 130, 40));
 
-        lblInformacion.setFont(new java.awt.Font("Tahoma", 3, 24)); // NOI18N
+        lblInformacion.setFont(new java.awt.Font("Century Gothic", 3, 18)); // NOI18N
         lblInformacion.setForeground(new java.awt.Color(204, 0, 0));
         lblInformacion.setText("Información");
-        getContentPane().add(lblInformacion, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 30, 170, 33));
+        getContentPane().add(lblInformacion, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 30, 170, 33));
 
-        lblCodigo.setFont(new java.awt.Font("Tahoma", 3, 12)); // NOI18N
+        lblCodigo.setFont(new java.awt.Font("Century Gothic", 1, 14)); // NOI18N
         lblCodigo.setText("Código");
         getContentPane().add(lblCodigo, new org.netbeans.lib.awtextra.AbsoluteConstraints(29, 87, 54, -1));
 
@@ -181,73 +181,73 @@ public class GUIVenderProducto extends javax.swing.JFrame {
                 txtCodigoKeyTyped(evt);
             }
         });
-        getContentPane().add(txtCodigo, new org.netbeans.lib.awtextra.AbsoluteConstraints(93, 84, 98, -1));
+        getContentPane().add(txtCodigo, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 90, 110, -1));
 
-        lblCantidad.setFont(new java.awt.Font("Tahoma", 3, 12)); // NOI18N
+        lblCantidad.setFont(new java.awt.Font("Century Gothic", 1, 14)); // NOI18N
         lblCantidad.setText("Cantidad");
-        getContentPane().add(lblCantidad, new org.netbeans.lib.awtextra.AbsoluteConstraints(29, 125, 60, -1));
+        getContentPane().add(lblCantidad, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 130, 70, -1));
 
         txtCantidad.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 txtCantidadKeyTyped(evt);
             }
         });
-        getContentPane().add(txtCantidad, new org.netbeans.lib.awtextra.AbsoluteConstraints(93, 122, 98, -1));
+        getContentPane().add(txtCantidad, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 130, 110, -1));
 
-        btnAgregar.setFont(new java.awt.Font("Tahoma", 3, 12)); // NOI18N
+        btnAgregar.setFont(new java.awt.Font("Century Gothic", 1, 14)); // NOI18N
         btnAgregar.setText("Agregar");
-        getContentPane().add(btnAgregar, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 180, 91, 33));
+        getContentPane().add(btnAgregar, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 170, 91, 33));
 
-        lblCedula.setFont(new java.awt.Font("Tahoma", 3, 12)); // NOI18N
+        lblCedula.setFont(new java.awt.Font("Century Gothic", 1, 14)); // NOI18N
         lblCedula.setText("Cédula");
-        getContentPane().add(lblCedula, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 90, 50, -1));
+        getContentPane().add(lblCedula, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 90, 50, -1));
 
-        lblNombre.setFont(new java.awt.Font("Tahoma", 3, 12)); // NOI18N
+        lblNombre.setFont(new java.awt.Font("Century Gothic", 1, 14)); // NOI18N
         lblNombre.setText("Nombre");
-        getContentPane().add(lblNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 130, 50, -1));
+        getContentPane().add(lblNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 130, 60, -1));
 
-        lblCiudad.setFont(new java.awt.Font("Tahoma", 3, 12)); // NOI18N
+        lblCiudad.setFont(new java.awt.Font("Century Gothic", 1, 14)); // NOI18N
         lblCiudad.setText("Ciudad");
-        getContentPane().add(lblCiudad, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 170, 50, -1));
+        getContentPane().add(lblCiudad, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 170, 50, -1));
 
-        lblDireccion.setFont(new java.awt.Font("Tahoma", 3, 12)); // NOI18N
+        lblDireccion.setFont(new java.awt.Font("Century Gothic", 1, 14)); // NOI18N
         lblDireccion.setText("Dirección");
-        getContentPane().add(lblDireccion, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 210, 60, -1));
+        getContentPane().add(lblDireccion, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 210, 70, -1));
 
-        btnRegresar.setFont(new java.awt.Font("Tahoma", 3, 12)); // NOI18N
+        btnRegresar.setFont(new java.awt.Font("Century Gothic", 1, 14)); // NOI18N
         btnRegresar.setText("Volver");
         btnRegresar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnRegresarActionPerformed(evt);
             }
         });
-        getContentPane().add(btnRegresar, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 270, 116, 38));
+        getContentPane().add(btnRegresar, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 290, 116, 38));
 
-        btnGenerarFactura.setFont(new java.awt.Font("Tahoma", 3, 12)); // NOI18N
-        btnGenerarFactura.setText("Generar Factura");
-        getContentPane().add(btnGenerarFactura, new org.netbeans.lib.awtextra.AbsoluteConstraints(311, 270, 133, 38));
+        btnGenerarFactura.setFont(new java.awt.Font("Century Gothic", 1, 14)); // NOI18N
+        btnGenerarFactura.setText("Generar factura");
+        getContentPane().add(btnGenerarFactura, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 290, -1, 38));
 
         txtCedula.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 txtCedulaKeyTyped(evt);
             }
         });
-        getContentPane().add(txtCedula, new org.netbeans.lib.awtextra.AbsoluteConstraints(376, 84, 86, -1));
+        getContentPane().add(txtCedula, new org.netbeans.lib.awtextra.AbsoluteConstraints(386, 90, 110, -1));
 
         txtNombre.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 txtNombreKeyTyped(evt);
             }
         });
-        getContentPane().add(txtNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(376, 122, 86, -1));
+        getContentPane().add(txtNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(386, 130, 110, -1));
 
         txtCiudad.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 txtCiudadKeyTyped(evt);
             }
         });
-        getContentPane().add(txtCiudad, new org.netbeans.lib.awtextra.AbsoluteConstraints(376, 170, 86, -1));
-        getContentPane().add(txtDireccion, new org.netbeans.lib.awtextra.AbsoluteConstraints(376, 212, 86, -1));
+        getContentPane().add(txtCiudad, new org.netbeans.lib.awtextra.AbsoluteConstraints(386, 170, 110, -1));
+        getContentPane().add(txtDireccion, new org.netbeans.lib.awtextra.AbsoluteConstraints(386, 210, 110, -1));
 
         lblFondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Fondos/FondoVenderProducto.jpg"))); // NOI18N
         getContentPane().add(lblFondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 530, 370));

@@ -18,7 +18,7 @@ import javax.swing.JOptionPane;
 
 /**
  *
- * @author Flavio
+ * @author MP
  */
 public class GUIEliminarProducto extends javax.swing.JFrame {
 ArrayList<Producto> producto = new ArrayList<Producto>();
@@ -86,11 +86,11 @@ ArrayList<Producto> producto = new ArrayList<Producto>();
         btnMenu = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setTitle("Eliminar producto");
+        setTitle("Eliminar");
 
         pnlProducto.setBorder(javax.swing.BorderFactory.createTitledBorder("Producto"));
 
-        lblCodigo.setFont(new java.awt.Font("Century Gothic", 0, 11)); // NOI18N
+        lblCodigo.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
         lblCodigo.setText("Código");
 
         txtCodigo.setFont(new java.awt.Font("Century Gothic", 0, 11)); // NOI18N
@@ -100,7 +100,7 @@ ArrayList<Producto> producto = new ArrayList<Producto>();
             }
         });
 
-        btnEliminar.setFont(new java.awt.Font("Century Gothic", 0, 11)); // NOI18N
+        btnEliminar.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
         btnEliminar.setText("Eliminar");
 
         javax.swing.GroupLayout pnlProductoLayout = new javax.swing.GroupLayout(pnlProducto);
@@ -131,7 +131,7 @@ ArrayList<Producto> producto = new ArrayList<Producto>();
                 .addContainerGap())
         );
 
-        btnMenu.setFont(new java.awt.Font("Century Gothic", 0, 11)); // NOI18N
+        btnMenu.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
         btnMenu.setText("Volver");
         btnMenu.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -150,12 +150,12 @@ ArrayList<Producto> producto = new ArrayList<Producto>();
             .addGroup(layout.createSequentialGroup()
                 .addGap(75, 75, 75)
                 .addComponent(pnlProducto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(79, Short.MAX_VALUE))
+                .addContainerGap(68, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap(55, Short.MAX_VALUE)
+                .addContainerGap(47, Short.MAX_VALUE)
                 .addComponent(pnlProducto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(38, 38, 38)
                 .addComponent(btnMenu)

@@ -20,7 +20,7 @@ import javax.swing.JOptionPane;
 
 /**
  *
- * @author Flavio
+ * @author MP
  */
 public class GUIAumentar extends javax.swing.JFrame {
 
@@ -91,11 +91,11 @@ public class GUIAumentar extends javax.swing.JFrame {
         btnMenu = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setTitle("Aumentar producto");
+        setTitle("Aumentar ");
 
         pnlProducto.setBorder(javax.swing.BorderFactory.createTitledBorder("Producto"));
 
-        lblCodigo.setFont(new java.awt.Font("Century Gothic", 0, 11)); // NOI18N
+        lblCodigo.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
         lblCodigo.setText("Código");
 
         txtCodigo.setFont(new java.awt.Font("Century Gothic", 0, 11)); // NOI18N
@@ -105,10 +105,10 @@ public class GUIAumentar extends javax.swing.JFrame {
             }
         });
 
-        btnAumentar.setFont(new java.awt.Font("Century Gothic", 0, 11)); // NOI18N
+        btnAumentar.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
         btnAumentar.setText("Aumentar");
 
-        lblCantidad.setFont(new java.awt.Font("Century Gothic", 0, 11)); // NOI18N
+        lblCantidad.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
         lblCantidad.setText("Cantidad");
 
         txtCantidad.setFont(new java.awt.Font("Century Gothic", 0, 11)); // NOI18N
@@ -154,7 +154,7 @@ public class GUIAumentar extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
-        btnMenu.setFont(new java.awt.Font("Century Gothic", 0, 11)); // NOI18N
+        btnMenu.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
         btnMenu.setText("Volver");
         btnMenu.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -180,7 +180,7 @@ public class GUIAumentar extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGap(22, 22, 22)
                 .addComponent(pnlProducto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 23, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 15, Short.MAX_VALUE)
                 .addComponent(btnMenu)
                 .addGap(18, 18, 18))
         );

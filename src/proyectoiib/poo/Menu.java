@@ -36,15 +36,16 @@ public class Menu extends javax.swing.JFrame {
         lblFondo = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("Menú");
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         lblPCStore.setFont(new java.awt.Font("Century Gothic", 3, 36)); // NOI18N
         lblPCStore.setText("PC STORE");
         getContentPane().add(lblPCStore, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 20, -1, -1));
 
-        lblBienvenido.setFont(new java.awt.Font("Century Gothic", 3, 14)); // NOI18N
+        lblBienvenido.setFont(new java.awt.Font("Century Gothic", 3, 18)); // NOI18N
         lblBienvenido.setText("BIENVENIDO");
-        getContentPane().add(lblBienvenido, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 70, -1, -1));
+        getContentPane().add(lblBienvenido, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 70, -1, -1));
 
         btnNuevosProductos.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
         btnNuevosProductos.setText("Nuevos Productos");
