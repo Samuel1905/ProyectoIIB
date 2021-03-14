@@ -5,17 +5,69 @@
  */
 package proyectoiib.poo;
 
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
+import java.util.ArrayList;
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author Flavio
  */
 public class GUIEliminarProducto extends javax.swing.JFrame {
-
+ArrayList<Producto> producto = new ArrayList<Producto>();
     /**
      * Creates new form GUIEliminarProductos
      */
     public GUIEliminarProducto() {
         initComponents();
+        
+        try {
+            ObjectInputStream recuperarObjeto = new ObjectInputStream(new FileInputStream("Productos.txt"));
+            ArrayList<Producto> producto = (ArrayList<Producto>) recuperarObjeto.readObject();
+            recuperarObjeto.close();
+            System.out.println("Lista productos recuperado con exito");
+            
+            btnEliminar.addActionListener(new ActionListener() {
+		public void actionPerformed(ActionEvent e) {
+                    Producto prodeli = new Producto();
+	prodeli.setCodigo(txtCodigo.getText());
+	for (Producto producto2 : producto) {
+	if (prodeli.getCodigo().compareTo(producto2.getCodigo())==0) {
+	producto2.setNombre("");
+	producto2.setCodigo("");
+        producto2.setStock(0);
+        producto2.setPrecio(0);
+        }
+        }
+        
+        try {
+	ObjectOutputStream guardarObjeto = new ObjectOutputStream(new FileOutputStream("Productos.txt"));
+	guardarObjeto.writeObject(producto);
+	guardarObjeto.close();
+        System.out.println("Lista guardada con exito");
+        } catch (FileNotFoundException e1) {
+            e1.printStackTrace();
+        } catch (IOException e1) {
+            e1.printStackTrace();
+        }
+
+	// fin archivos
+        txtCodigo.setText("");
+        JOptionPane.showMessageDialog(getContentPane(), "Producto eliminado", "Mensaje", 1);
+                }
+                
+        });
+            
+        } catch (IOException iOException) {
+        } catch (ClassNotFoundException classNotFoundException) {
+        }
     }
 
     /**
@@ -42,6 +94,11 @@ public class GUIEliminarProducto extends javax.swing.JFrame {
         lblCodigo.setText("Código");
 
         txtCodigo.setFont(new java.awt.Font("Century Gothic", 0, 11)); // NOI18N
+        txtCodigo.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtCodigoKeyTyped(evt);
+            }
+        });
 
         btnEliminar.setFont(new java.awt.Font("Century Gothic", 0, 11)); // NOI18N
         btnEliminar.setText("Eliminar");
@@ -115,6 +172,13 @@ public class GUIEliminarProducto extends javax.swing.JFrame {
         nuevoMenu.setVisible(true);
         GUIEliminarProducto.this.dispose();
     }//GEN-LAST:event_btnMenuActionPerformed
+
+    private void txtCodigoKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtCodigoKeyTyped
+        // TODO add your handling code here:
+        if ((int) evt.getKeyChar() < 48 || (int) evt.getKeyChar() > 57) {
+            evt.consume();
+        }
+    }//GEN-LAST:event_txtCodigoKeyTyped
 
     /**
      * @param args the command line arguments

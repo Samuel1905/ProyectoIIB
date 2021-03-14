@@ -5,6 +5,11 @@
  */
 package proyectoiib.poo;
 
+import java.io.FileInputStream;
+import java.io.IOException;
+import java.io.ObjectInputStream;
+import java.util.ArrayList;
+
 /**
  *
  * @author User
@@ -16,6 +21,30 @@ public class GUIInventario extends javax.swing.JFrame {
      */
     public GUIInventario() {
         initComponents();
+        
+        try {
+            ObjectInputStream recuperarObjeto = new ObjectInputStream(new FileInputStream("Productos.txt"));
+            ArrayList<Producto> producto = (ArrayList<Producto>) recuperarObjeto.readObject();
+            recuperarObjeto.close();
+            System.out.println("Lista recuperada con exito");
+            
+            txaSalida.append("Código" + "\t" + "Nombre" + "\t\t" + "Stock" + "\t"
+					+ "Precio" + "\n");
+            for (Producto pr : producto) {
+		if (pr.getCodigo().compareTo("") == 0) {
+                    txaSalida.append(" ");
+		} else {
+                    txaSalida.append(pr.getCodigo() + "\t" + pr.getNombre() + "\t\t" + pr.getStock() + "\t"
+					+ pr.getPrecio() + "\n");
+                }
+            }
+            
+            
+        } catch (IOException iOException) {
+            System.out.println("1");
+        } catch (ClassNotFoundException classNotFoundException) {
+            System.out.println("2");
+        }
     }
 
     /**
@@ -27,27 +56,12 @@ public class GUIInventario extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jPanel1 = new javax.swing.JPanel();
-        jScrollPane2 = new javax.swing.JScrollPane();
-        tblInformacion = new javax.swing.JTable();
         btnMenu = new javax.swing.JButton();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        txaSalida = new javax.swing.JTextArea();
+        lblInventario = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-
-        jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createEtchedBorder(), "Inventario"));
-
-        tblInformacion.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
-            },
-            new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4"
-            }
-        ));
-        jScrollPane2.setViewportView(tblInformacion);
 
         btnMenu.setFont(new java.awt.Font("Century Gothic", 0, 11)); // NOI18N
         btnMenu.setText("Volver");
@@ -57,45 +71,46 @@ public class GUIInventario extends javax.swing.JFrame {
             }
         });
 
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(20, 20, 20)
-                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 628, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(280, 280, 280)
-                        .addComponent(btnMenu)))
-                .addContainerGap(25, Short.MAX_VALUE))
-        );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(26, 26, 26)
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(31, 31, 31)
-                .addComponent(btnMenu)
-                .addContainerGap(44, Short.MAX_VALUE))
-        );
+        txaSalida.setColumns(20);
+        txaSalida.setRows(5);
+        txaSalida.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txaSalidaKeyTyped(evt);
+            }
+        });
+        jScrollPane1.setViewportView(txaSalida);
+        txaSalida.getAccessibleContext().setAccessibleParent(txaSalida);
+
+        lblInventario.setFont(new java.awt.Font("Times New Roman", 3, 18)); // NOI18N
+        lblInventario.setText("INVENTARIO");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(45, 45, 45)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 639, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(45, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(lblInventario)
+                .addGap(308, 308, 308))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(btnMenu)
+                .addGap(329, 329, 329))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(25, 25, 25)
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(19, Short.MAX_VALUE))
+                .addContainerGap()
+                .addComponent(lblInventario)
+                .addGap(26, 26, 26)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 258, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(btnMenu)
+                .addContainerGap(30, Short.MAX_VALUE))
         );
 
         pack();
@@ -108,6 +123,13 @@ public class GUIInventario extends javax.swing.JFrame {
         nuevoMenu.setVisible(true);
         GUIInventario.this.dispose();
     }//GEN-LAST:event_btnMenuActionPerformed
+
+    private void txaSalidaKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txaSalidaKeyTyped
+        // TODO add your handling code here:
+        if ((int) evt.getKeyChar() > 0) {
+            evt.consume();
+        }
+    }//GEN-LAST:event_txaSalidaKeyTyped
 
     /**
      * @param args the command line arguments
@@ -147,8 +169,8 @@ public class GUIInventario extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnMenu;
-    private javax.swing.JPanel jPanel1;
-    private javax.swing.JScrollPane jScrollPane2;
-    private javax.swing.JTable tblInformacion;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JLabel lblInventario;
+    private javax.swing.JTextArea txaSalida;
     // End of variables declaration//GEN-END:variables
 }

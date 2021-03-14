@@ -10,7 +10,7 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.util.ArrayList;
-import javax.swing.table.DefaultTableModel;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -18,7 +18,7 @@ import javax.swing.table.DefaultTableModel;
  */
 public class GUIFactura extends javax.swing.JFrame {
 
-    DefaultTableModel modeloTabla; //declarando objeto
+    
     double t = 0.0;
 
     /**
@@ -28,7 +28,7 @@ public class GUIFactura extends javax.swing.JFrame {
         initComponents();
 
         try {
-            ObjectInputStream recuperarFactura = new ObjectInputStream(new FileInputStream("Factura.dat"));
+            ObjectInputStream recuperarFactura = new ObjectInputStream(new FileInputStream("Factura.txt"));
             ArrayList<Facturas> factura = (ArrayList<Facturas>) recuperarFactura.readObject();
             recuperarFactura.close();
             System.out.println("Factura recuperado con exito");
@@ -46,7 +46,7 @@ public class GUIFactura extends javax.swing.JFrame {
             }
 
             try {
-                ObjectInputStream recuperarObjeto = new ObjectInputStream(new FileInputStream("Venta.dat"));
+                ObjectInputStream recuperarObjeto = new ObjectInputStream(new FileInputStream("Venta.txt"));
                 ArrayList<Venta> venta = (ArrayList<Venta>) recuperarObjeto.readObject();
                 recuperarObjeto.close();
                 System.out.println("Lista recuperado con exito");
@@ -113,7 +113,13 @@ public class GUIFactura extends javax.swing.JFrame {
 
         txaSalida.setColumns(20);
         txaSalida.setRows(5);
+        txaSalida.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txaSalidaKeyTyped(evt);
+            }
+        });
         jScrollPane2.setViewportView(txaSalida);
+        txaSalida.getAccessibleContext().setAccessibleParent(txaSalida);
 
         getContentPane().add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 70, 520, 240));
 
@@ -125,11 +131,18 @@ public class GUIFactura extends javax.swing.JFrame {
 
     private void btnFinalizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnFinalizarActionPerformed
         // TODO add your handling code here:
-
+ JOptionPane.showMessageDialog(getContentPane(), "La factura se ha impreso", "Mensaje", 1);
         Menu nuevoMenu = new Menu();
         nuevoMenu.setVisible(true);
         GUIFactura.this.dispose();
     }//GEN-LAST:event_btnFinalizarActionPerformed
+
+    private void txaSalidaKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txaSalidaKeyTyped
+        // TODO add your handling code here:
+        if ((int) evt.getKeyChar() > 0) {
+	evt.consume();
+        }
+    }//GEN-LAST:event_txaSalidaKeyTyped
 
     /**
      * @param args the command line arguments

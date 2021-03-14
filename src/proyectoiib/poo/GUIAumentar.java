@@ -5,17 +5,72 @@
  */
 package proyectoiib.poo;
 
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
+import java.util.ArrayList;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author Flavio
  */
 public class GUIAumentar extends javax.swing.JFrame {
 
+    
     /**
      * Creates new form Aumentar
      */
     public GUIAumentar() {
         initComponents();
+        
+        try {  
+            ObjectInputStream recuperarObjeto = new ObjectInputStream(new FileInputStream("Productos.txt"));
+            ArrayList<Producto> producto = (ArrayList<Producto>) recuperarObjeto.readObject();
+            recuperarObjeto.close();
+            System.out.println("Lista productos recuperado con exito");
+            
+        btnAumentar.addActionListener(new ActionListener() {
+	public void actionPerformed(ActionEvent e) {    
+            
+        Producto prodaum = new Producto();
+	prodaum.setCodigo(txtCodigo.getText());
+	prodaum.setStock(Integer.parseInt(txtCantidad.getText()));
+	for (Producto producto2 : producto) {
+	 if (prodaum.getCodigo().compareTo(producto2.getCodigo())==0) {
+	  producto2.setStock(producto2.getStock()+prodaum.getStock());						
+	 }
+	}
+      
+        try{
+	ObjectOutputStream guardarObjeto = new ObjectOutputStream(new FileOutputStream("Productos.txt"));
+	guardarObjeto.writeObject(producto);
+	guardarObjeto.close();
+	System.out.println("Lista guardada con exito");
+        }catch(FileNotFoundException e1) {
+	e1.printStackTrace();
+	}catch(IOException e1) {
+           e1.printStackTrace();
+	}
+      txtCodigo.setText("");
+      txtCantidad.setText("");
+      JOptionPane.showMessageDialog(getContentPane(), "Producto aumentado", "Mensaje", 1);
+        }
+    });
+            
+        } catch (IOException ex) {
+            System.out.println("Error1");
+        } catch (ClassNotFoundException ex) {
+            System.out.println("Error2");
+        }
+        
     }
 
     /**
@@ -44,6 +99,11 @@ public class GUIAumentar extends javax.swing.JFrame {
         lblCodigo.setText("Código");
 
         txtCodigo.setFont(new java.awt.Font("Century Gothic", 0, 11)); // NOI18N
+        txtCodigo.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtCodigoKeyTyped(evt);
+            }
+        });
 
         btnAumentar.setFont(new java.awt.Font("Century Gothic", 0, 11)); // NOI18N
         btnAumentar.setText("Aumentar");
@@ -52,6 +112,11 @@ public class GUIAumentar extends javax.swing.JFrame {
         lblCantidad.setText("Cantidad");
 
         txtCantidad.setFont(new java.awt.Font("Century Gothic", 0, 11)); // NOI18N
+        txtCantidad.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtCantidadKeyTyped(evt);
+            }
+        });
 
         javax.swing.GroupLayout pnlProductoLayout = new javax.swing.GroupLayout(pnlProducto);
         pnlProducto.setLayout(pnlProductoLayout);
@@ -60,9 +125,6 @@ public class GUIAumentar extends javax.swing.JFrame {
             .addGroup(pnlProductoLayout.createSequentialGroup()
                 .addGroup(pnlProductoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(pnlProductoLayout.createSequentialGroup()
-                        .addGap(81, 81, 81)
-                        .addComponent(btnAumentar))
-                    .addGroup(pnlProductoLayout.createSequentialGroup()
                         .addContainerGap()
                         .addGroup(pnlProductoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(lblCantidad)
@@ -70,8 +132,11 @@ public class GUIAumentar extends javax.swing.JFrame {
                         .addGap(18, 18, 18)
                         .addGroup(pnlProductoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(txtCodigo, javax.swing.GroupLayout.DEFAULT_SIZE, 126, Short.MAX_VALUE)
-                            .addComponent(txtCantidad))))
-                .addContainerGap(27, Short.MAX_VALUE))
+                            .addComponent(txtCantidad)))
+                    .addGroup(pnlProductoLayout.createSequentialGroup()
+                        .addGap(73, 73, 73)
+                        .addComponent(btnAumentar)))
+                .addContainerGap(23, Short.MAX_VALUE))
         );
         pnlProductoLayout.setVerticalGroup(
             pnlProductoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -79,12 +144,12 @@ public class GUIAumentar extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(pnlProductoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblCodigo)
-                    .addComponent(txtCodigo, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(pnlProductoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(txtCodigo))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED, 26, Short.MAX_VALUE)
+                .addGroup(pnlProductoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(lblCantidad)
-                    .addComponent(txtCantidad, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 21, Short.MAX_VALUE)
+                    .addComponent(txtCantidad, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
                 .addComponent(btnAumentar)
                 .addContainerGap())
         );
@@ -101,21 +166,21 @@ public class GUIAumentar extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(311, Short.MAX_VALUE)
+                .addComponent(btnMenu, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18))
             .addGroup(layout.createSequentialGroup()
                 .addGap(79, 79, 79)
                 .addComponent(pnlProducto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(78, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(btnMenu, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(22, 22, 22)
                 .addComponent(pnlProducto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 32, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 23, Short.MAX_VALUE)
                 .addComponent(btnMenu)
                 .addGap(18, 18, 18))
         );
@@ -130,6 +195,20 @@ public class GUIAumentar extends javax.swing.JFrame {
         nuevoMenu.setVisible(true);
         GUIAumentar.this.dispose();
     }//GEN-LAST:event_btnMenuActionPerformed
+
+    private void txtCodigoKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtCodigoKeyTyped
+        // TODO add your handling code here:
+        if ((int) evt.getKeyChar() < 48 || (int) evt.getKeyChar() > 57) {
+	evt.consume();
+        }
+    }//GEN-LAST:event_txtCodigoKeyTyped
+
+    private void txtCantidadKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtCantidadKeyTyped
+        // TODO add your handling code here:
+        if ((int) evt.getKeyChar() < 48 || (int) evt.getKeyChar() > 57) {
+	evt.consume();
+        }
+    }//GEN-LAST:event_txtCantidadKeyTyped
 
     /**
      * @param args the command line arguments

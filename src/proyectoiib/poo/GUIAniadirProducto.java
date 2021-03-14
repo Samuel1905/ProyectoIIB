@@ -5,6 +5,18 @@
  */
 package proyectoiib.poo;
 
+
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
+import java.util.ArrayList;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 
 /**
@@ -13,13 +25,63 @@ import javax.swing.JOptionPane;
  */
 public class GUIAniadirProducto extends javax.swing.JFrame {
 
-    Producto p1;
-
+    
+  
     /**
      * Creates new form AniadirProducto
      */
     public GUIAniadirProducto() {
         initComponents();
+            
+    try{
+       ObjectInputStream recuperarObjeto = new ObjectInputStream(new FileInputStream("Productos.txt"));
+	ArrayList<Producto> producto = (ArrayList<Producto>) recuperarObjeto.readObject();
+	recuperarObjeto.close();
+	System.out.println("Lista recuperada con exito");
+	for (Producto pr : producto) {
+
+	System.out.printf("%-5s  %10s %5d %10.2f \n", pr.getCodigo(), pr.getNombre(), pr.getStock(),
+	pr.getPrecio());                        
+}
+        
+ btnAgregar.addActionListener(new ActionListener() {
+    public void actionPerformed(ActionEvent e) {  
+         int stock = Integer.parseInt(txtCantidad.getText());
+        double precio = Double.parseDouble(txtPrecio.getText());
+        producto.add(new Producto(txtCodigo.getText(), txtNombre.getText(), stock, precio));
+                        
+          JOptionPane.showMessageDialog(rootPane, "Producto ingresado correctamente.");
+            limpiarGUI();
+                              
+        }   
+ });
+        
+        
+        btnVolver.addActionListener(new ActionListener() {
+				public void actionPerformed(ActionEvent e) {
+        
+        try{
+        ObjectOutputStream guardarObjeto = new ObjectOutputStream(new FileOutputStream("Productos.txt"));
+   guardarObjeto.writeObject(producto);
+   guardarObjeto.close();
+     System.out.println("Lista guardada con exito");
+	} catch (FileNotFoundException e1) {
+            e1.printStackTrace();
+        } catch (IOException e1) {
+            e1.printStackTrace();
+       }
+        Menu nuevoMenu = new Menu();
+        nuevoMenu.setVisible(true);
+        GUIAniadirProducto.this.dispose();
+        }
+}); 
+        }catch (FileNotFoundException e1) {
+			System.out.println("Error1");
+		} catch (IOException e1) {
+			System.out.println("Error2");
+		} catch (ClassNotFoundException e1) {
+			System.out.println("Error3");
+		}   
     }
 
     /**
@@ -31,8 +93,8 @@ public class GUIAniadirProducto extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jPanel1 = new javax.swing.JPanel();
-        jLabel1 = new javax.swing.JLabel();
+        pnlDatos = new javax.swing.JPanel();
+        lblDatos = new javax.swing.JLabel();
         blCodigo = new javax.swing.JLabel();
         blNombre = new javax.swing.JLabel();
         blCantidad = new javax.swing.JLabel();
@@ -45,11 +107,12 @@ public class GUIAniadirProducto extends javax.swing.JFrame {
         txtPrecio = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jPanel1.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        pnlDatos.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
-        jLabel1.setFont(new java.awt.Font("Century Gothic", 3, 11)); // NOI18N
-        jLabel1.setText("Datos");
+        lblDatos.setFont(new java.awt.Font("Century Gothic", 3, 11)); // NOI18N
+        lblDatos.setText("Datos");
 
         blCodigo.setFont(new java.awt.Font("Century Gothic", 0, 11)); // NOI18N
         blCodigo.setText("Código");
@@ -65,99 +128,94 @@ public class GUIAniadirProducto extends javax.swing.JFrame {
 
         btnAgregar.setFont(new java.awt.Font("Century Gothic", 0, 11)); // NOI18N
         btnAgregar.setText("Agregar");
-        btnAgregar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnAgregarActionPerformed(evt);
-            }
-        });
 
         btnVolver.setFont(new java.awt.Font("Century Gothic", 0, 11)); // NOI18N
         btnVolver.setText("Volver");
-        btnVolver.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnVolverActionPerformed(evt);
+
+        txtCodigo.setFont(new java.awt.Font("Century Gothic", 0, 11)); // NOI18N
+        txtCodigo.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtCodigoKeyTyped(evt);
             }
         });
 
-        txtCodigo.setFont(new java.awt.Font("Century Gothic", 0, 11)); // NOI18N
-
         txtNombre.setFont(new java.awt.Font("Century Gothic", 0, 11)); // NOI18N
+        txtNombre.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtNombreKeyTyped(evt);
+            }
+        });
 
         txtCantidad.setFont(new java.awt.Font("Century Gothic", 0, 11)); // NOI18N
+        txtCantidad.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtCantidadKeyTyped(evt);
+            }
+        });
 
         txtPrecio.setFont(new java.awt.Font("Century Gothic", 0, 11)); // NOI18N
+        txtPrecio.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtPrecioKeyTyped(evt);
+            }
+        });
 
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
+        javax.swing.GroupLayout pnlDatosLayout = new javax.swing.GroupLayout(pnlDatos);
+        pnlDatos.setLayout(pnlDatosLayout);
+        pnlDatosLayout.setHorizontalGroup(
+            pnlDatosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pnlDatosLayout.createSequentialGroup()
+                .addGroup(pnlDatosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(pnlDatosLayout.createSequentialGroup()
                         .addGap(47, 47, 47)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(pnlDatosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(blCodigo)
                             .addComponent(blNombre)
-                            .addComponent(blPrecio)
-                            .addComponent(blCantidad))
-                        .addGap(45, 45, 45)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jLabel1)
+                            .addComponent(blCantidad)
+                            .addComponent(blPrecio))
+                        .addGap(64, 64, 64)
+                        .addGroup(pnlDatosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(lblDatos)
                             .addComponent(txtCodigo)
                             .addComponent(txtNombre)
                             .addComponent(txtCantidad)
                             .addComponent(txtPrecio, javax.swing.GroupLayout.DEFAULT_SIZE, 143, Short.MAX_VALUE)))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(59, 59, 59)
-                        .addComponent(btnAgregar)
-                        .addGap(39, 39, 39)
-                        .addComponent(btnVolver)))
-                .addContainerGap(51, Short.MAX_VALUE))
+                    .addGroup(pnlDatosLayout.createSequentialGroup()
+                        .addGap(147, 147, 147)
+                        .addGroup(pnlDatosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(btnAgregar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(btnVolver, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                .addContainerGap(58, Short.MAX_VALUE))
         );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
+        pnlDatosLayout.setVerticalGroup(
+            pnlDatosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pnlDatosLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jLabel1)
+                .addComponent(lblDatos)
                 .addGap(18, 18, 18)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGroup(pnlDatosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(blCodigo)
                     .addComponent(txtCodigo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGroup(pnlDatosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(blNombre)
                     .addComponent(txtNombre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGroup(pnlDatosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(blCantidad)
                     .addComponent(txtCantidad, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGroup(pnlDatosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(txtPrecio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(blPrecio))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 42, Short.MAX_VALUE)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnAgregar)
-                    .addComponent(btnVolver))
-                .addGap(65, 65, 65))
+                .addGap(18, 18, 18)
+                .addComponent(btnAgregar)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 31, Short.MAX_VALUE)
+                .addComponent(btnVolver)
+                .addGap(19, 19, 19))
         );
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(47, 47, 47)
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(42, Short.MAX_VALUE))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(28, 28, 28)
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
+        getContentPane().add(pnlDatos, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 40, 370, 300));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -168,30 +226,33 @@ public class GUIAniadirProducto extends javax.swing.JFrame {
         txtPrecio.setText(null);
     }
     
-    private void btnAgregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAgregarActionPerformed
+    private void txtCodigoKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtCodigoKeyTyped
         // TODO add your handling code here:
-        try {
-            int stock = Integer.parseInt(txtCantidad.getText());
-            double precio = Double.parseDouble(txtPrecio.getText());
+        if ((int) evt.getKeyChar() < 48 || (int) evt.getKeyChar() > 57) {
+	evt.consume();
+    }
+    }//GEN-LAST:event_txtCodigoKeyTyped
 
-            p1 = new Producto(txtCodigo.getText(), txtNombre.getText(), stock, precio);
-            JOptionPane.showMessageDialog(rootPane, "Producto ingresado correctamente.");
+    private void txtNombreKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtNombreKeyTyped
+        // TODO add your handling code here:
+        if ((int) evt.getKeyChar() > 48 && (int) evt.getKeyChar() < 58) {
+	evt.consume();
+    }
+    }//GEN-LAST:event_txtNombreKeyTyped
 
-        } catch (Exception e) {
-            JOptionPane.showMessageDialog(rootPane, "Datos incorrectos!", "Advertencia", JOptionPane.WARNING_MESSAGE);
+    private void txtCantidadKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtCantidadKeyTyped
+        // TODO add your handling code here:
+        if ((int) evt.getKeyChar() < 48 || (int) evt.getKeyChar() > 57) {
+	evt.consume();
         }
-        
-        limpiarGUI();
+    }//GEN-LAST:event_txtCantidadKeyTyped
 
-    }//GEN-LAST:event_btnAgregarActionPerformed
-
-    private void btnVolverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVolverActionPerformed
+    private void txtPrecioKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtPrecioKeyTyped
         // TODO add your handling code here:
-
-        Menu nuevoMenu = new Menu();
-        nuevoMenu.setVisible(true);
-        GUIAniadirProducto.this.dispose();
-    }//GEN-LAST:event_btnVolverActionPerformed
+        if ((int) evt.getKeyChar() < 46 || (int) evt.getKeyChar() > 57) {
+	evt.consume();
+        }
+    }//GEN-LAST:event_txtPrecioKeyTyped
 
     /**
      * @param args the command line arguments
@@ -236,8 +297,8 @@ public class GUIAniadirProducto extends javax.swing.JFrame {
     private javax.swing.JLabel blPrecio;
     private javax.swing.JButton btnAgregar;
     private javax.swing.JButton btnVolver;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JPanel jPanel1;
+    private javax.swing.JLabel lblDatos;
+    private javax.swing.JPanel pnlDatos;
     private javax.swing.JTextField txtCantidad;
     private javax.swing.JTextField txtCodigo;
     private javax.swing.JTextField txtNombre;
