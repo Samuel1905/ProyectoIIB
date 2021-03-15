@@ -23,7 +23,7 @@ import javax.swing.JOptionPane;
 public class GUIVenderProducto extends javax.swing.JFrame {
 
     ArrayList<Venta> venta = new ArrayList<Venta>();
-    ArrayList<Facturas> factura = new ArrayList<Facturas>();
+    ArrayList<Factura> factura = new ArrayList<Factura>();
     
     int a = 0;
     int vt = 0;
@@ -107,7 +107,7 @@ public class GUIVenderProducto extends javax.swing.JFrame {
 });
         btnGenerarFactura.addActionListener(new ActionListener() {
 	public void actionPerformed(ActionEvent e) {
-            factura.add(new Facturas(Integer.parseInt(txtCedula.getText()), txtNombre.getText(), txtCiudad.getText(),
+            factura.add(new Factura(Integer.parseInt(txtCedula.getText()), txtNombre.getText(), txtCiudad.getText(),
 	txtDireccion.getText()));
 	try {
             ObjectOutputStream guardarFactura = new ObjectOutputStream(new FileOutputStream("Factura.txt"));
@@ -159,6 +159,7 @@ public class GUIVenderProducto extends javax.swing.JFrame {
         lblFondo = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("Vender");
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         lblProducto.setBackground(new java.awt.Color(255, 255, 255));

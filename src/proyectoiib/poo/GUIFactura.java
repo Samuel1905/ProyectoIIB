@@ -29,10 +29,10 @@ public class GUIFactura extends javax.swing.JFrame {
 
         try {
             ObjectInputStream recuperarFactura = new ObjectInputStream(new FileInputStream("Factura.txt"));
-            ArrayList<Facturas> factura = (ArrayList<Facturas>) recuperarFactura.readObject();
+            ArrayList<Factura> factura = (ArrayList<Factura>) recuperarFactura.readObject();
             recuperarFactura.close();
             System.out.println("Factura recuperado con exito");
-            for (Facturas facturas : factura) {
+            for (Factura facturas : factura) {
 
                 if (Integer.toString(facturas.getCedula()).length() < 10) {
 

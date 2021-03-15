@@ -7,20 +7,20 @@ package proyectoiib.poo;
 
 import java.io.Serializable;
 
-public class Facturas implements Serializable{
+public class Factura implements Serializable{
 	private int cedula;
 	private String nombre;
 	private String ciudad;
 	private String domicilio;
 
-	public Facturas(int cedula, String nombre, String ciudad, String domicilio) {
+	public Factura(int cedula, String nombre, String ciudad, String domicilio) {
 		this.cedula = cedula;
 		this.nombre = nombre;
 		this.ciudad = ciudad;
 		this.domicilio = domicilio;
 	}
 
-	public Facturas() {
+	public Factura() {
 
 	}
 
